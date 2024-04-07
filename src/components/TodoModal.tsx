@@ -1,20 +1,18 @@
 import React from 'react'
-import './TodoModal.style.css'
-import { ITodo } from './Todo.type'
+import './TodoModal.style.css';
+import { ITodo } from './Todo.type';
 
 type Props = {
   onClose: () => void
   data: ITodo
-}
+};
 
 const TodoModal = (props: Props) => {
-  const { onClose, data } = props
+  const {onClose, data} = props;
   return (
-    <div id="myModal" className="Modal">
-      <div className="modal-content">
-        <span className="close" onClick={onClose}>
-          &times;
-        </span>
+    <div id='myModal' className='Modal'>
+      <div className='modal-content'>
+        <span className="close" onClick={onClose}>&times;</span>
         <div>
           <h3>Todo Data</h3>
           <div>
@@ -26,6 +24,6 @@ const TodoModal = (props: Props) => {
         </div>
       </div>
     </div>
-  )
-}
-export default TodoModal
+  );
+};
+export default  TodoModal;

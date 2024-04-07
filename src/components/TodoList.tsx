@@ -13,7 +13,7 @@ type Props = {
 const TodoList = (props: Props) => {
   const { list, onDeleteClickHnd, onEditClickHnd } = props
   const [showModal, setShowModal] = useState(false)
-  const [dataToShow, setdataToShow] = useState(null as ITodo | null)
+  const [dataToShow, setdataToShow] = useState<null | ITodo>(null)
 
   const viewTodo = (data: ITodo) => {
     setdataToShow(data)

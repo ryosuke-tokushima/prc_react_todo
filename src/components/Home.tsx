@@ -39,7 +39,7 @@ export default function Home() {
     setShownPage(PageEnum.list)
   }
 
-  const addTodoHnd = (data: ITodo) => {
+  const addTodo = (data: ITodo) => {
     const newTodo = {
       ...data,
       id: uuidv4(), // 一意のIDを生成
@@ -84,22 +84,22 @@ export default function Home() {
             />
             <TodoList
               list={todoList}
-              onDeleteClickHnd={deleteTodo}
-              onEditClickHnd={editTodo}
+              onDeleteClick={deleteTodo}
+              onEditClick={editTodo}
             />
           </>
         )}
         {shownpage === PageEnum.add && (
           <AddTodo
-            onBackButtonHnd={showListPage}
-            onSubmitClickHnd={addTodoHnd}
+            onBackButton={showListPage}
+            onSubmitClick={addTodo}
           />
         )}
         {shownpage === PageEnum.edit && (
           <EditTodo
             data={todoEdit}
-            onBackButtonHnd={showListPage}
-            onUpdateClickHnd={updateData}
+            onBackButton={showListPage}
+            onUpdateClick={updateData}
           />
         )}
       </section>

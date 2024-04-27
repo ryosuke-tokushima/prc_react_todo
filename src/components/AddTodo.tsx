@@ -1,35 +1,35 @@
 import { useState } from 'react'
 import './AddTodoForm.style.css'
 import { ITodo } from './Todo.type'
+import React from 'react'
 
 type Props = {
-  onBackButtonHnd: () => void
-  onSubmitClickHnd: (data: ITodo) => void
+  onBackButton: () => void
+  onSubmitClick: (data: ITodo) => void
 }
 
-const AddTodo = (props: Props) => {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
+const AddTodo = ({ onBackButton, onSubmitClick}: Props) => {
+  const [title, setTitle] = useState<string>('')
+  const [description, setDescription] = useState<string>('')
 
-  const { onBackButtonHnd, onSubmitClickHnd } = props
 
-  const onTodoTitleChangeHnd = (e: any) => {
+  const onTodoTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value)
   }
 
-  const onDescriptionChangeHnd = (e: any) => {
+  const onDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDescription(e.target.value)
   }
 
-  const onSumitBtnClickedHnd = (e: any) => {
+  const onSumitBtnClicked = (e: React.FormEvent<HTMLFormElement>)  => {
     e.preventDefault()
     const data: ITodo = {
       id: new Date().toJSON.toString(),
       title: title,
       description: description,
     }
-    onSubmitClickHnd(data)
-    onBackButtonHnd()
+    onSubmitClick(data)
+    onBackButton()
   }
 
   return (
@@ -37,21 +37,21 @@ const AddTodo = (props: Props) => {
       <div>
         <h3>Add Employ Form</h3>
       </div>
-      <form onSubmit={onSumitBtnClickedHnd}>
+      <form onSubmit={onSumitBtnClicked}>
         <div>
           <label>Todo Title</label>
-          <input type="text" value={title} onChange={onTodoTitleChangeHnd} />
+          <input type="text" value={title} onChange={onTodoTitleChange} />
         </div>
         <div>
           <label>Description</label>
           <input
             type="text"
             value={description}
-            onChange={onDescriptionChangeHnd}
+            onChange={onDescriptionChange}
           />
         </div>
         <div>
-          <input type="button" value="Back" onClick={onBackButtonHnd} />
+          <input type="button" value="Back" onClick={onBackButton} />
           <input type="submit" value="Add Todo" />
         </div>
       </form>

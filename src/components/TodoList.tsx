@@ -6,12 +6,12 @@ import TodoModal from './TodoModal'
 
 type Props = {
   list: ITodo[]
-  onDeleteClickHnd: (data: ITodo) => void
-  onEditClickHnd: (data: ITodo) => void
+  onDeleteClick: (data: ITodo) => void
+  onEditClick: (data: ITodo) => void
 }
 
 const TodoList = (props: Props) => {
-  const { list, onDeleteClickHnd, onEditClickHnd } = props
+  const { list, onDeleteClick, onEditClick } = props
   const [showModal, setShowModal] = useState(false)
   const [dataToShow, setdataToShow] = useState<null | ITodo>(null)
 
@@ -51,12 +51,12 @@ const TodoList = (props: Props) => {
                   <input
                     type="button"
                     value="Edit"
-                    onClick={() => onEditClickHnd(todo)}
+                    onClick={() => onEditClick(todo)}
                   ></input>
                   <input
                     type="button"
                     value="Delete"
-                    onClick={() => onDeleteClickHnd(todo)}
+                    onClick={() => onDeleteClick(todo)}
                   ></input>
                 </div>
               </td>

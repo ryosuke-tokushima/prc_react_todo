@@ -1,0 +1,21 @@
+.article-header {
+  background-color: blue;
+  color: white;
+  border: 3px solid transparent;
+  text-align: center;
+}
+
+.section-content {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 15px;
+}
+
+.add-todo-button {
+  float: right;
+  margin-bottom: 5px;
+}
+
+.list-header {
+  text-align: center;
+}
